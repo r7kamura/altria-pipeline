@@ -1,4 +1,4 @@
-module Magi
+module Altria
   module Pipeline
     class Pipeliner
       attr_reader :job

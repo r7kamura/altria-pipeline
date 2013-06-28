@@ -1,6 +1,6 @@
 require File.expand_path("../../../spec_helper", __FILE__)
 
-describe Magi::Pipeline::Pipeliner do
+describe Altria::Pipeline::Pipeliner do
   let(:pipeliner) do
     described_class.new(job)
   end
