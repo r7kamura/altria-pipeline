@@ -28,11 +28,11 @@ describe Altria::Pipeline::Pipeliner do
       end
     end
 
-    context "with space separeted job ids and run_next_jobs_only_when_this_build_succeed checked and this build succeeded" do
+    context "with space separeted job ids and run_next_jobs_only_when_this_job_succeed checked and this job succeeded" do
       before do
         job.update_properties(
           next_job_ids: [0, FactoryGirl.create(:job).id].join(" "),
-          run_next_jobs_only_when_this_build_succeed: true,
+          run_next_jobs_only_when_this_job_succeed: true,
         )
         FactoryGirl.create(:build, job: job, started_at: Time.now, status: true)
       end
@@ -43,11 +43,11 @@ describe Altria::Pipeline::Pipeliner do
       end
     end
 
-    context "with space separeted job ids and run_next_jobs_only_when_this_build_succeed checked and this build failed" do
+    context "with space separeted job ids and run_next_jobs_only_when_this_job_succeed checked and this job failed" do
       before do
         job.update_properties(
           next_job_ids: [0, FactoryGirl.create(:job).id].join(" "),
-          run_next_jobs_only_when_this_build_succeed: true,
+          run_next_jobs_only_when_this_job_succeed: true,
         )
         FactoryGirl.create(:build, job: job, started_at: Time.now, status: false)
       end
