@@ -8,7 +8,9 @@ module Altria
       end
 
       def after_execute
-        enqueue if has_next_jobs?
+        if ( !job.run_next_jobs_only_when_this_build_succeed || @job.current_build.status )
+          enqueue if has_next_jobs?
+        end
       end
 
       def enqueue
